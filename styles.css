@@ -1,0 +1,193 @@
+/* ======= ELEMENTS STYLES ======= */
+body {
+    padding: 0px;
+    margin: 0px;
+    background-color: #1B1B1B;
+    font-family: 'Shantell Sans', cursive;
+}
+
+button {
+    font-family: 'Shantell Sans', cursive;
+}
+/* =======// ELEMENTS STYLES //======= */
+
+
+/* ======= IDs STYLES ======= */
+#all-content {    
+    height: 90vh;
+    padding: 50px;
+    margin: 0px;    
+}
+
+#header-and-board-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;    
+}
+
+#main-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#header {
+    background: #c6c6c636;
+    color: white;
+    border-radius: 30px;
+    box-shadow: 0px 5px 13px rgba(0, 0, 0, 0.2);
+    height: 10%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+}
+
+#footer {
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(84, 60, 172, 0.8);
+    color: white;
+    border-radius: 30px;
+    box-shadow: 0px 5px 13px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#footer .action-btn {
+    margin: 10px 0;
+    width: 100%;
+    cursor: pointer;
+}
+
+#footer .action-btn:hover {
+    background: rgb(137, 105, 240);
+    transform: translateY(-3px);
+}
+/* =======// IDs STYLES //======= */
+
+
+/* ======= CLASSES STYLES ======= */
+.grid-container {
+    display: grid;
+    aspect-ratio: 1;
+    padding: 50px;
+    grid-template-columns: auto auto auto;    
+    height: 90%;    
+    background-color: #F0DB4F;
+    border: #4d4d4d solid 12px;
+    border-radius: 30px;
+    box-shadow: 0px 5px 13px rgba(0, 0, 0, 0.9);
+}
+
+
+.square {
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;    
+    text-align: center;
+    cursor: pointer;
+    /* width: 100px;
+    height: 100px; */
+    transition: all 0.3s;
+}
+
+.square:hover {
+    /* box-shadow: 0px 20px 15px rgba(0, 0, 0, 0.5); */
+    background-color: #c6b439;
+    /* color: white;     */
+}
+
+
+.action-btn {
+    font-size: 30px;
+    padding: 7px 30px;
+    border-radius: 30px;
+    box-shadow: 0px 5px 13px rgba(0, 0, 0, 0.2);
+    color: white;
+    border: none;
+    transition: all 0.3s;
+    background: rgb(84 60 172);
+    cursor: pointer;
+}
+
+.action-btn:hover {
+    box-shadow: 0px 20px 15px rgba(0, 0, 0, 0.5);
+    background: rgb(137, 105, 240);
+}
+
+
+.square-content{
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    padding: 0px;
+}
+#win-counts-header {
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    background: rgba(84, 60, 172, 0.8);
+    color: white;
+    border-radius: 30px;
+    box-shadow: 0px 5px 13px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* =======// CLASSES STYLES //======= */
+
+#game-mode-selection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    margin-bottom: 20px;
+    background: rgba(84, 60, 172, 0.8);
+    color: white;
+    border-radius: 30px;
+    box-shadow: 0px 5px 13px rgba(0, 0, 0, 0.5);
+    padding: 30px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#game-mode-selection:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.7);
+}
+
+#game-mode-selection h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #fff;
+}
+
+#game-mode-selection .action-btn {
+    margin: 10px 0;
+    width: 80%;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#game-mode-selection .action-btn:hover {
+    background: rgb(137, 105, 240);
+    transform: translateY(-3px);
+}

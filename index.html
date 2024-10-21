@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XO Game</title>
+
+    <!-- EXTERNAL STYLING FILE -->
+    <link rel="stylesheet" href="styles.css">
+    <!--// EXTERNAL STYLING FILE //-->
+
+    <!-- ANIMATE CSS -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!--// ANIMATE CSS //-->
+
+    <!-- ALERTIFY JS -->
+        <!-- JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <!--// ALERTIFY JS //-->
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Shantell+Sans:ital,wght@1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <!--// GOOGLE FONTS //-->
+</head>
+<body>
+    <div id="all-content">
+        <!-- X/O BOARD -->
+        <div id="main-content">
+            <div id="header-and-board-wrapper">
+                <!-- TOP HEADER -->
+                <div id="header">
+                    <h2 id="instruction"></h2>
+                </div>
+
+                <div id="game-mode-selection">
+                    <h1>Game Mode</h1>
+                    <button class="action-btn" onclick="startGame('human')">Play with Your Friend</button>
+                    <button class="action-btn" onclick="startGame('computer')">Play with PC</button>
+                </div>
+
+                <div id="win-counts-header" style="display: none;">
+                    <p>X Wins: <span id="x-wins">0</span></p>
+                    <p>O Wins: <span id="o-wins">0</span></p>
+                </div>
+                <!--// TOP HEADER //-->
+
+                <!-- BOARD -->
+                <div id="board" class="grid-container" style="display: none;">
+                    <div class="square" value="1" style="border-top: none; border-left: none">
+                        <h3 class="square-content"></h3>
+                    </div>
+                    <div class="square" value="2" style="border-top: none">
+                        <h3 class="square-content"></h3>
+                    </div>
+                    <div class="square" value="3" style="border-top: none; border-right: none">
+                        <h3 class="square-content"></h3>
+                    </div>
+                    <div class="square" value="4" style="border-left: none">
+                        <h3 class="square-content"></h3>
+                    </div>
+                    <div class="square" value="5">
+                        <h3 class="square-content"></h3>
+                    </div>
+                    <div class="square" value="6" style="border-right: none">
+                        <h3 class="square-content"></h3>
+                    </div>
+                    <div class="square" value="7" style="border-bottom: none; border-left: none">
+                        <h3 class="square-content"></h3>
+                    </div>
+                    <div class="square" value="8" style="border-bottom: none">
+                        <h3 class="square-content"></h3>
+                    </div>
+                    <div class="square" value="9" style="border-bottom: none; border-right: none">
+                        <h3 class="square-content"></h3>
+                    </div>
+                </div>
+                <!-- BOARD -->
+
+                <!-- FOOTER -->
+                <div id="footer" style="display: none;">
+                    <button class="action-btn" id="reset-btn">Reset</button>
+                </div>
+                <!-- FOOTER -->
+            </div>
+        </div>
+        <!--// X/O BOARD //-->
+    </div>
+</body>
+
+<script src="logic.js"></script>
+</html>
