@@ -60,7 +60,13 @@ function makeMove(index, player) {
 function computerMove() {
     if (gameIsFinished) return;
 
-    let bestMove = getBestMove();
+    let bestMove;
+    if (Math.random() < 0.7) { // 70% chance to make the best move
+        bestMove = getBestMove();
+    } else { // 30% chance to make a random move
+        let availableMoves = boardArray.map((val, idx) => val !== "x" && val !== "o" ? idx : null).filter(val => val !== null);
+        bestMove = availableMoves[Math.floor(Math.random() * availableMoves.length)];
+    }
     makeMove(bestMove, "o");
     computerIsPlaying = false; // Reset flag after computer's move
 }
