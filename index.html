@@ -44,7 +44,12 @@
                     <h2 id="instruction">Game Mode</h2>
                 </div>
 
-                <div id="game-mode-selection">
+                <div id="player-selection">
+                    <h1>Select Your Player</h1>
+                    <button class="action-btn" onclick="selectPlayer('x')">X</button>
+                    <button class="action-btn" onclick="selectPlayer('o')">O</button>
+                </div>
+                <div id="game-mode-selection" style="display: none;">
                     <h1>Choose Game Mode</h1>
                     <button class="action-btn" onclick="startGame('human')">Play with Friend</button>
                     <button class="action-btn" onclick="startGame('computer')">Play with PC</button>
