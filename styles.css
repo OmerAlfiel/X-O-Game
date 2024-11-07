@@ -1,9 +1,10 @@
 /* ======= ELEMENTS STYLES ======= */
 body {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     background-color: #2C3E50;
     font-family: 'Shantell Sans', cursive;
+    color: #ECF0F1;
 }
 
 button {
@@ -16,10 +17,10 @@ button {
 #all-content {    
     height: 90vh;
     padding: 50px;
-    margin: 0px;    
+    margin: 0;    
 }
 
-#header-and-board-wrapper{
+#header-and-board-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -91,9 +92,7 @@ button {
     box-shadow: 0px 5px 13px rgba(0, 0, 0, 0.9);
 }
 
-
 .square {
-    /* background-color: rgba(255, 255, 255, 0.8); */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -101,24 +100,23 @@ button {
     padding: 20px;    
     text-align: center;
     cursor: pointer;
-    /* width: 100px;
-    height: 100px; */
     transition: all 0.3s;
+    background-color: #ECF0F1;
+    font-size: 30px;
+    font-weight: bold;
+    color: #34495E;
 }
 
 .square:hover {
-    /* box-shadow: 0px 20px 15px rgba(0, 0, 0, 0.5); */
     background-color: #BDC3C7;
-    /* color: white;     */
 }
-
 
 .action-btn {
     font-size: 30px;
     padding: 7px 30px;
     border-radius: 30px;
     box-shadow: 0px 5px 13px rgba(0, 0, 0, 0.2);
-    color: white;
+    color: #ECF0F1;
     border: none;
     transition: all 0.3s;
     background: #1ABC9C;
@@ -130,13 +128,13 @@ button {
     background: #16A085;
 }
 
-
-.square-content{
+.square-content {
     width: 30px;
     height: 30px;
     font-size: 30px;
     padding: 0px;
 }
+
 #win-counts-header {
     display: flex;
     justify-content: space-around;
@@ -188,6 +186,46 @@ button {
 }
 
 #game-mode-selection .action-btn:hover {
+    background: #16A085;
+    transform: translateY(-3px);
+}
+
+#player-selection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    margin-bottom: 20px;
+    background: #34495E;
+    color: #ECF0F1;
+    border-radius: 30px;
+    box-shadow: 0px 5px 13px rgba(0, 0, 0, 0.5);
+    padding: 30px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#player-selection:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.7);
+}
+
+#player-selection h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ECF0F1;
+}
+
+#player-selection .action-btn {
+    margin: 10px 0;
+    width: 80%;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#player-selection .action-btn:hover {
     background: #16A085;
     transform: translateY(-3px);
 }
