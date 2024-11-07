@@ -2,10 +2,20 @@ let currentTurn = "x";
 let gameIsFinished = false;
 let gameMode = null;
 let computerIsPlaying = false; // New flag to indicate computer's turn
+let player = ''; // New variable to store the selected player
+let computerPlayer = ''; // New variable to store the computer's player symbol
 const gridItems = document.getElementsByClassName("square");
 let boardArray = Array.from({ length: 9 }, (_, i) => i.toString());
 let xWins = 0;
 let oWins = 0;
+
+function selectPlayer(selectedPlayer) {
+    player = selectedPlayer;
+    computerPlayer = player === 'x' ? 'o' : 'x'; // Set the computer's player symbol
+    currentTurn = player;
+    document.getElementById('player-selection').style.display = 'none';
+    document.getElementById('game-mode-selection').style.display = 'flex';
+}
 
 function startGame(mode) {
     gameMode = mode;
@@ -14,11 +24,17 @@ function startGame(mode) {
     document.getElementById("win-counts-header").style.display = "flex";
     document.getElementById("board").style.display = "grid";
     document.getElementById("footer").style.display = "block";
+    
+    // If the computer is 'X' and it's the computer's turn, make the first move
+    if (gameMode === 'computer' && currentTurn === computerPlayer) {
+        computerIsPlaying = true;
+        setTimeout(computerMove, 500); // Delay for better UX
+    }
 }
 
 Array.from(gridItems).forEach(item => {
     item.addEventListener("click", function() {
-        if (gameIsFinished || computerIsPlaying || (gameMode === "computer" && currentTurn === "o")) return;
+        if (gameIsFinished || computerIsPlaying || (gameMode === "computer" && currentTurn !== player)) return;
 
         const value = this.getAttribute("value");
         const index = value - 1;
@@ -28,7 +44,7 @@ Array.from(gridItems).forEach(item => {
         makeMove(index, currentTurn);
 
         if (!gameIsFinished && gameMode === "computer") {
-            currentTurn = "o";
+            currentTurn = currentTurn === "x" ? "o" : "x";
             document.getElementById("instruction").textContent = `${currentTurn.toUpperCase()} turn`;
             computerIsPlaying = true; // Set flag to true
             setTimeout(computerMove, 500); // Delay for better UX
@@ -67,7 +83,7 @@ function computerMove() {
         let availableMoves = boardArray.map((val, idx) => val !== "x" && val !== "o" ? idx : null).filter(val => val !== null);
         bestMove = availableMoves[Math.floor(Math.random() * availableMoves.length)];
     }
-    makeMove(bestMove, "o");
+    makeMove(bestMove, computerPlayer); 
     computerIsPlaying = false; // Reset flag after computer's move
 }
 
@@ -77,7 +93,7 @@ function getBestMove() {
     for (let i = 0; i < boardArray.length; i++) {
         if (boardArray[i] !== "x" && boardArray[i] !== "o") {
             let temp = boardArray[i];
-            boardArray[i] = "o";
+            boardArray[i] = computerPlayer; 
             let score = minimax(boardArray, 0, false);
             boardArray[i] = temp;
             if (score > bestScore) {
@@ -106,7 +122,7 @@ function minimax(board, depth, isMaximizing) {
         for (let i = 0; i < board.length; i++) {
             if (board[i] !== "x" && board[i] !== "o") {
                 let temp = board[i];
-                board[i] = "o";
+                board[i] = computerPlayer; 
                 let score = minimax(board, depth + 1, false);
                 board[i] = temp;
                 bestScore = Math.max(score, bestScore);
@@ -118,7 +134,7 @@ function minimax(board, depth, isMaximizing) {
         for (let i = 0; i < board.length; i++) {
             if (board[i] !== "x" && board[i] !== "o") {
                 let temp = board[i];
-                board[i] = "x";
+                board[i] = player;
                 let score = minimax(board, depth + 1, true);
                 board[i] = temp;
                 bestScore = Math.min(score, bestScore);
@@ -163,7 +179,7 @@ document.getElementById("reset-btn").addEventListener("click", reset);
 
 function reset() {
     gameIsFinished = false;
-    currentTurn = "x";
+    currentTurn = player;
     computerIsPlaying = false; // Reset flag on reset
     boardArray = Array.from({ length: 9 }, (_, i) => i.toString());
 
